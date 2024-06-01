@@ -1,15 +1,15 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { UseSelector, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from 'react'
+import {useSelector} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 
-function Protected(){
-      const navigate = useNavigate()
-      const [loader, setLoader ] = useState(true)
-      authStatus = useSelector(state => state.auth.status)
+export default function Protected({children, authentication = true}) {
 
-      useEffect(() => {
-             //TODO: make it more easy to understand
+    const navigate = useNavigate()
+    const [loader, setLoader] = useState(true)
+    const authStatus = useSelector(state => state.auth.status)
+
+    useEffect(() => {
+        //TODO: make it more easy to understand
 
         // if (authStatus ===true){
         //     navigate("/")
